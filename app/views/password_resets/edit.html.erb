@@ -5,16 +5,17 @@
             <div><%= message %></div>
         <% end %>
     <% end %>
-
-    <div>
-        <%= form.label :password %>
-        <%= form.password_field :password %>
-    </div>
-    <div>
-        <%= form.label :password_confirmation %>
-        <%= form.password_field :password_confirmation %>
-    </div>
-    <div>
-        <%= form.submit "Reset Password" %>
+    <div class="row g-3 align-items-center">
+        <div class="col-auto">
+            <%= form.label :password %>
+            <%= form.password_field :password %>
+        </div>
+        <div class="col-auto">
+            <%= form.label :password_confirmation %>
+            <%= form.password_field :password_confirmation %>
+        </div>
+        <div class="col-auto">
+            <%= form.submit "Reset Password" %>
+        </div>
     </div>
 <% end %>

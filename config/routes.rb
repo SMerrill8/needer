@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :organizations
+  resources :matches
+  resources :needs
+  resources :resources
+  resources :types
   resource :registration
   resource :session
   resource :password_reset
