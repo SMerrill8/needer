@@ -2,8 +2,6 @@
 
 one:
   name: MyString
-  supertype_id: 1
 
 two:
   name: MyString
-  supertype_id: 1

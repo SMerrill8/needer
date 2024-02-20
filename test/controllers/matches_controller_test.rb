@@ -17,7 +17,7 @@ class MatchesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create match" do
     assert_difference("Match.count") do
-      post matches_url, params: { match: {  } }
+      post matches_url, params: { match: { need_id: @match.need_id, resource_id: @match.resource_id, type_id: @match.type_id } }
     end
 
     assert_redirected_to match_url(Match.last)
@@ -34,7 +34,7 @@ class MatchesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update match" do
-    patch match_url(@match), params: { match: {  } }
+    patch match_url(@match), params: { match: { need_id: @match.need_id, resource_id: @match.resource_id, type_id: @match.type_id } }
     assert_redirected_to match_url(@match)
   end
 

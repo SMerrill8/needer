@@ -14,6 +14,9 @@ class MatchesTest < ApplicationSystemTestCase
     visit matches_url
     click_on "New match"
 
+    fill_in "Need", with: @match.need_id
+    fill_in "Resource", with: @match.resource_id
+    fill_in "Type", with: @match.type_id
     click_on "Create Match"
 
     assert_text "Match was successfully created"
@@ -24,6 +27,9 @@ class MatchesTest < ApplicationSystemTestCase
     visit match_url(@match)
     click_on "Edit this match", match: :first
 
+    fill_in "Need", with: @match.need_id
+    fill_in "Resource", with: @match.resource_id
+    fill_in "Type", with: @match.type_id
     click_on "Update Match"
 
     assert_text "Match was successfully updated"

@@ -65,6 +65,6 @@ class MatchesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def match_params
-      params.fetch(:match, {})
+      params.require(:match).permit(:resource_id, :need_id, :type_id)
     end
 end

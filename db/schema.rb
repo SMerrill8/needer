@@ -10,13 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_15_055717) do
-  create_table "cats", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
+ActiveRecord::Schema[7.1].define(version: 2024_02_20_160404) do
   create_table "matches", force: :cascade do |t|
     t.integer "resource_id"
     t.integer "need_id"
@@ -38,7 +32,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_15_055717) do
   end
 
   create_table "organizations", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -49,6 +43,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_15_055717) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["type_id"], name: "index_resources_on_type_id"
+  end
+
+  create_table "supertypes", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "types", force: :cascade do |t|
@@ -68,5 +68,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_15_055717) do
     t.index ["organization_id"], name: "index_users_on_organization_id"
   end
 
-  add_foreign_key "types", "types", column: "supertype_id"
+  add_foreign_key "supertypes", "types", column: "supertype_id"
 end

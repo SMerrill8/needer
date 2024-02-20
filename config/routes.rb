@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :supertypes
   resources :organizations
   resources :matches
   resources :needs

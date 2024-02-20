@@ -17,7 +17,7 @@ class NeedsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create need" do
     assert_difference("Need.count") do
-      post needs_url, params: { need: {  } }
+      post needs_url, params: { need: { begin_date: @need.begin_date, end_date: @need.end_date, long_description: @need.long_description, name: @need.name } }
     end
 
     assert_redirected_to need_url(Need.last)
@@ -34,7 +34,7 @@ class NeedsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update need" do
-    patch need_url(@need), params: { need: {  } }
+    patch need_url(@need), params: { need: { begin_date: @need.begin_date, end_date: @need.end_date, long_description: @need.long_description, name: @need.name } }
     assert_redirected_to need_url(@need)
   end
 

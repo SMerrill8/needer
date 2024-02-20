@@ -14,6 +14,8 @@ class ResourcesTest < ApplicationSystemTestCase
     visit resources_url
     click_on "New resource"
 
+    fill_in "Name", with: @resource.name
+    fill_in "Type", with: @resource.type_id
     click_on "Create Resource"
 
     assert_text "Resource was successfully created"
@@ -24,6 +26,8 @@ class ResourcesTest < ApplicationSystemTestCase
     visit resource_url(@resource)
     click_on "Edit this resource", match: :first
 
+    fill_in "Name", with: @resource.name
+    fill_in "Type", with: @resource.type_id
     click_on "Update Resource"
 
     assert_text "Resource was successfully updated"

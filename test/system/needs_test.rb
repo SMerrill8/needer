@@ -14,6 +14,10 @@ class NeedsTest < ApplicationSystemTestCase
     visit needs_url
     click_on "New need"
 
+    fill_in "Begin date", with: @need.begin_date
+    fill_in "End date", with: @need.end_date
+    fill_in "Long description", with: @need.long_description
+    fill_in "Name", with: @need.name
     click_on "Create Need"
 
     assert_text "Need was successfully created"
@@ -24,6 +28,10 @@ class NeedsTest < ApplicationSystemTestCase
     visit need_url(@need)
     click_on "Edit this need", match: :first
 
+    fill_in "Begin date", with: @need.begin_date
+    fill_in "End date", with: @need.end_date
+    fill_in "Long description", with: @need.long_description
+    fill_in "Name", with: @need.name
     click_on "Update Need"
 
     assert_text "Need was successfully updated"

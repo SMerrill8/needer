@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Supertypes</h1>
+
+<div id="supertypes">
+  <% @supertypes.each do |supertype| %>
+    <%= render supertype %>
+    <p>
+      <%= link_to "Show this supertype", supertype %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New supertype", new_supertype_path %>
