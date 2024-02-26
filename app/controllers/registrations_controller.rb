@@ -12,10 +12,10 @@ class RegistrationsController < ApplicationController
             render :new, status: :unprocessable_entity
         end
     end
-    
+
     private
 
     def registration_params
-        params.require(:user).permit(:email, :password, :password_confirmation)
+        params.require(:user).permit(:email, :password, :organization_id, :password_confirmation)
     end
 end

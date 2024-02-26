@@ -11,13 +11,13 @@
   <% end %>
 
   <div>
-    <%= form.label :resource_id, style: "display: block" %>
-      <%= form.select :resource_id, options_from_collection_for_select(Resource.all, :id, :name) %>
+    <%= form.label :need_id, style: "display: block" %>
+      <%= form.select :need_id, options_from_collection_for_select(Need.all, :id, :name) %>
   </div>
 
   <div>
-    <%= form.label :need_id, style: "display: block" %>
-      <%= form.select :need_id, options_from_collection_for_select(Need.all, :id, :name) %>
+    <%= form.label :resource_id, style: "display: block" %>
+      <%= form.select :resource_id, options_from_collection_for_select(Resource.all, :id, :name) %>
   </div>
 
   <div>

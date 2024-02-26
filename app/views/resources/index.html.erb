@@ -4,10 +4,8 @@
 
 <div id="resources">
   <% @resources.each do |resource| %>
-    <%= render resource %>
-    <p>
-      <%= link_to "Show this resource", resource %>
-    </p>
+   <p> <%= render resource %>
+    <%= link_to "Show", resource %></p>
   <% end %>
 </div>
 

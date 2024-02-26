@@ -1,12 +1,8 @@
 <div id="<%= dom_id type %>">
   <p>
-    <strong>Name:</strong>
-    <%= type.name %>
-  </p>
-
-  <p>
-    <strong>Supertype:</strong>
-    <%= type.supertype_id %>
+    <strong>
+    <%= Supertype.find_by(id: type.supertype_id).name %>:
+    </strong> <%= type.name %> &nbsp; 
   </p>
 
 </div>

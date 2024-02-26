@@ -5,7 +5,11 @@ class SessionsController < ApplicationController
     def create
         if user = User.authenticate_by(email: params[:email], password: params[:password])
             login user
-            redirect_to root_path, notice: "You have signed in successfully, " + User.email
+            note = "Welcome", user.email
+            if user_org = Organization.find_by(id: user.organization_id)
+                note = "Welcome to " + user_org.name
+            end
+            redirect_to root_path, notice: note
         else
             flash[:alert] = "Invalid email or password."
             render :new, status: :unprocessable_entity
