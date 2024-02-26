@@ -68,5 +68,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_20_160404) do
     t.index ["organization_id"], name: "index_users_on_organization_id"
   end
 
-  add_foreign_key "supertypes", "types", column: "supertype_id"
+  add_foreign_key "types", "supertypes"
 end

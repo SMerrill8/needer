@@ -1,3 +1,4 @@
 class Organization < ApplicationRecord
-  belongs_to :type
+  validates :name, presence: true
+  has_many :user
 end

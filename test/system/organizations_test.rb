@@ -14,6 +14,7 @@ class OrganizationsTest < ApplicationSystemTestCase
     visit organizations_url
     click_on "New organization"
 
+    fill_in "Name", with: @organization.name
     click_on "Create Organization"
 
     assert_text "Organization was successfully created"
@@ -24,6 +25,7 @@ class OrganizationsTest < ApplicationSystemTestCase
     visit organization_url(@organization)
     click_on "Edit this organization", match: :first
 
+    fill_in "Name", with: @organization.name
     click_on "Update Organization"
 
     assert_text "Organization was successfully updated"
