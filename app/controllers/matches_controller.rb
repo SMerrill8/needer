@@ -1,4 +1,5 @@
 class MatchesController < ApplicationController
+include MatchesHelper
   before_action :set_match, only: %i[ show edit update destroy ]
 
   # GET /matches or /matches.json
@@ -17,6 +18,7 @@ class MatchesController < ApplicationController
 
   # GET /matches/1/edit
   def edit
+
   end
 
   # POST /matches or /matches.json

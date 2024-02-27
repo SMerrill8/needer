@@ -3,7 +3,7 @@ class SupertypesController < ApplicationController
 
   # GET /supertypes or /supertypes.json
   def index
-    @supertypes = Supertype.all
+    @supertypes = Supertype.all.sort_by{|e| e[:name]}
   end
 
   # GET /supertypes/1 or /supertypes/1.json

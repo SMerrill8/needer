@@ -3,7 +3,7 @@ class NeedsController < ApplicationController
 
   # GET /needs or /needs.json
   def index
-    @needs = Need.all
+    @needs = Need.all.sort_by{|e| e[:name]}
   end
 
   # GET /needs/1 or /needs/1.json
@@ -65,6 +65,6 @@ class NeedsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def need_params
-      params.require(:need).permit(:name, :long_description, :begin_date, :end_date)
+      params.require(:need).permit(:name, :long_description, :type_id, :begin_date, :end_date)
     end
 end

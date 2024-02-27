@@ -11,34 +11,21 @@ end
     Supertype.find_or_create_by!(name: n)
 end
 
-Type.find_or_create_by!(name: "Need", supertype_id: 1)
-Type.find_or_create_by!(name: "Resource", supertype_id: 2)
-
-Resource.delete_all
-rt = Type.find_by(name: "Resource").id
-["Clothing",
-"Equipment",
-"Food",
-"Housing",
-"Money",
-"Services",
-"Skills",
-"Tools",
-"Transportation",
-"Volunteers"
-].each do |n|
-  Resource.find_or_create_by!(name: n, type_id: rt )
-end
-
-rt = Type.find_by(name: "Team").id
+# Team Types
+rt = Supertype.find_by(name: "Team").id
 ["Church","Family","Individual","Team"].each do |n|
-  Type.find_or_create_by!(name: n, supertype_id: rt)
+  Type.find_or_create_by(name: n) do |x|
+    x.supertype_id = rt
+  end
 end
 
+# resource types
+rt = Supertype.find_by(name: "Resource").id
 ["_OTHER",
 "Car Detailer",
 "Car Mechanic",
 "Carpenter",
+"Clothing",
 "Child Care Giver",
 "Counsellor",
 "Delivery Driver",
@@ -48,10 +35,12 @@ end
 "General Laborer",
 "Handyman",
 "House Cleaner",
+"Housing available",
 "Janitor",
 "Landscaper",
 "Lawn Mowing",
 "Mover",
+"Money",
 "Musician",
 "Pastor",
 "Pet Care Giver",
@@ -59,9 +48,16 @@ end
 "Plumber",
 "Rug Installer",
 "Teacher",
+"Tool",
+"Transportation",
 "Technology/Media",
 "Videographer",
+"Volunteer",
 "Visitation"
 ].each do |n|
-  Type.find_or_create_by!(name: n, supertype_id: 5)
+  Type.find_or_create_by(name: n) do |user|
+    user.supertype_id = rt
+  end
 end
+
+# match types

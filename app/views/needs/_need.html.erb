@@ -1,5 +1,10 @@
 <div id="<%= dom_id need %>">
   <p>
+    <strong>Type of need:</strong>&nbsp;
+    <%= Type.find_by(id: need.type_id).name %>
+  </p>
+
+  <p>
     <strong>Name:</strong>
     <%= need.name %>
   </p>
@@ -10,13 +15,11 @@
   </p>
 
   <p>
-    <strong>Begin date:</strong>
-    <%= need.begin_date %>
-  </p>
-
-  <p>
-    <strong>End date:</strong>
-    <%= need.end_date %>
+    <strong>Need valid from:</strong>
+    <%= need.begin_date.strftime("%F %H:%M") %>
+    &nbsp;
+    <strong>to:</strong>
+    <%= need.end_date.strftime("%F %H:%M") %>
   </p>
 
 </div>
