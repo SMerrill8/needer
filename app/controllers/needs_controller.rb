@@ -13,6 +13,8 @@ class NeedsController < ApplicationController
   # GET /needs/new
   def new
     @need = Need.new
+    @need.begin_date = Time.now
+    @need.end_date = @need.begin_date + 7.days
   end
 
   # GET /needs/1/edit

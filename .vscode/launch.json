@@ -10,6 +10,19 @@
             "name": "Launch Edge against localhost",
             "url": "http://localhost:3000",
             "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "rdbg",
+            "name": "Debug current file with rdbg",
+            "request": "launch",
+            "script": "${file}",
+            "args": [],
+            "askParameters": true
+        },
+        {
+            "type": "rdbg",
+            "name": "Attach with rdbg",
+            "request": "attach"
         }
     ]
 }

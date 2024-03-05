@@ -3,10 +3,12 @@
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
 
+# Organizations
 ["The Refuge Church", "Crossroads Church", "Silverdale Community Church"].each do |n|
   Organization.find_or_create_by!(name: n)
 end
 
+# Supertypes
 ["Need", "Resource", "Match","Team","Service"].each do |n|
     Supertype.find_or_create_by!(name: n)
 end
@@ -19,7 +21,7 @@ rt = Supertype.find_by(name: "Team").id
   end
 end
 
-# resource types
+# Resource Types
 rt = Supertype.find_by(name: "Resource").id
 ["_OTHER",
 "Car Detailer",
@@ -61,3 +63,4 @@ rt = Supertype.find_by(name: "Resource").id
 end
 
 # match types
+# (may not be needed)

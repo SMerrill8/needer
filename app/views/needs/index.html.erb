@@ -1,14 +1,29 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Needs</h1>
+<h1>List of Needs</h1>
 
-<div id="needs">
-  <% @needs.each do |need| %>
-    <%= render need %>
-    <p>
-      <%= link_to "Show this need", need %>
-    </p>
-  <% end %>
-</div>
-
+<table id="tblNeeds" class="table table-bordered">
+  <thead class="table-dark">
+    <tr>
+      <td>Type</td>
+      <td>Name</td>
+      <td>Valid From</td>
+      <td>Valid To</td>
+      <td>Description</td>
+      <td>Show</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @needs.each do |need| %>
+    <tr>
+      <td><%=Type.all.where(id: need.type_id).name %></td><!-- TODO: fix this-->
+      <td><%= need.name %></td>
+      <td><%= need.begin_date.strftime("%F %H:%M") %></td>
+      <td><%= need.end_date.strftime("%F %H:%M") %></td>
+      <td><%= need.long_description %></td>
+      <td> <%= link_to "Show", need %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
 <%= link_to "New need", new_need_path %>

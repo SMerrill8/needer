@@ -13,7 +13,7 @@
 
   <div>
     What type of a need is this?&nbsp;
-     <%= form.select :type_id, options_from_collection_for_select(Type.all.where(supertype_id: 5), :id, :name, need.type_id) %>
+     <%= form.select :type_id, options_from_collection_for_select(Type.all.where(supertype_id: Supertype.all.where(name: "Need")), :id, :name, need.type_id) %>
   </div>
 
   <div>
@@ -28,12 +28,12 @@
 
   <div>
     <%= form.label :begin_date, style: "display: block" %>
-    <%= form.datetime_field :begin_date %>
+    <%= form.datetime_select :begin_date %>
   </div>
 
   <div>
     <%= form.label :end_date, style: "display: block" %>
-    <%= form.datetime_field :end_date %>
+    <%= form.datetime_select :end_date %>
   </div>
 
   <div>
