@@ -22,7 +22,7 @@
 					href="<%= root_path %>"><span class="material-icons">rocket</span>Meeting Needs</a>
 				<div class="fixed-bottom border-top" id="navbarSupportedContent">
 					<ul class="navbar-nav mr-auto mb-2 mb-lg-0">
-<% if user_signed_in? %>
+					<% if user_signed_in? %>
 						<li class="nav-item">
 							<a class="nav-link"
 								href="<%= edit_password_path %>">Edit Password</a>
@@ -30,7 +30,7 @@
 						<li class="nav-item">
 							<%= button_to "Log out", session_path, method: :delete, class: "nav-link" %>
 						</li> 		
-<% else %>
+					<% else %>
 						<li class="nav-item">
 							<a class="nav-link"
 								href="<%= new_registration_path %>">Sign Up<span class="material-icons">person_add</span>
@@ -41,18 +41,21 @@
 								href="<%= new_session_path %>">Log In<span class="material-icons">login</span>
 							</a>
 						</li>
-<% end %>
+					<% end %>
 					</ul>
 				</div>
 			
 		</nav>
-	    <div> 
+		<% unless notice.nil? %>
+	    <div class="alert alert-success" role="alert">
 			<%= notice %>
 		</div> 
-		<div> 
+		<% end %>
+		<% unless alert.nil? %>
+		<div class="alert alert-alert" role="alert">
 			<%= alert %>
 		</div> 
-
+		<% end %>
 <%= yield %>
 		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
 				integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"

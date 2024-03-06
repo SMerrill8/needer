@@ -1,25 +1,30 @@
 <div id="<%= dom_id need %>">
-  <p>
-    <strong>Type of need:</strong>&nbsp;
-    <%= Type.find_by(id: need.type_id).name %>
-  </p>
-
-  <p>
-    <strong>Name:</strong>
-    <%= need.name %>
-  </p>
-
-  <p>
-    <strong>Long description:</strong>
-    <%= need.long_description %>
-  </p>
-
-  <p>
-    <strong>Need valid from:</strong>
-    <%= need.begin_date.strftime("%F %H:%M") %>
-    &nbsp;
-    <strong>to:</strong>
-    <%= need.end_date.strftime("%F %H:%M") %>
-  </p>
-
+  <div class="container text-left">
+  <table class="table table-borderless table-striped">
+    <thead>
+    </thead>
+    <tbody>
+      <tr class="row justify-content-md-left">
+        <td class="col-3">Type of need:</td>
+        <td class="col"><%= Type.find_by(id: need.type_id).name %><td>
+      </tr>
+      <tr class="row justify-content-md-left">
+        <td class="col-3">Name:</td>
+        <td class="col"><%= need.name %></td>
+      </tr>
+      <tr class="row justify-content-md-left">
+        <td class="col-3">Long Description:</td>
+        <td class="col"><%= need.long_description %></td>
+      </tr>
+      <tr class="row justify-content-md-left">
+        <td class="col-3">Need valid from:</td>
+        <td class="col"><%= need.begin_date.strftime("%F %H:%M") %></td>
+      </tr>
+      <tr class="row justify-content-md-left">
+        <td class="col-3">Need valid to:</td>
+        <td class="col"><%= need.end_date.strftime("%F %H:%M") %></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
 </div>

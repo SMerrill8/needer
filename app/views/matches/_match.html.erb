@@ -1,17 +1,17 @@
 <div id="<%= dom_id match %>">
   <p>
     <strong>Resource:</strong>
-    <%= match.resource_id %>
+    <%= Resource.find(match.resource_id).name %>
   </p>
 
   <p>
     <strong>Need:</strong>
-    <%= match.need_id %>
+    <%= Need.find(match.need_id).name %>
   </p>
 
   <p>
     <strong>Type:</strong>
-    <%= match.type_id %>
+    <%= Type.find(match.type_id).name %>
   </p>
 
 </div>

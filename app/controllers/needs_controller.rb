@@ -8,6 +8,7 @@ class NeedsController < ApplicationController
 
   # GET /needs/1 or /needs/1.json
   def show
+
   end
 
   # GET /needs/new

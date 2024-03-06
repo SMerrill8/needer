@@ -14,7 +14,7 @@
   <div> Resource Type:&nbsp;
      <%= form.select :type_id, options_from_collection_for_select(
       Type.all.where(supertype_id: 
-      Supertype.all.where(name: "Resource")), :id, :name, resource.type_id) %>
+        Supertype.all.where(name: "Resource")), :id, :name, resource.type_id) %>
   </div>
 
   <div>

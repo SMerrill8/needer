@@ -1,7 +1,5 @@
-<p style="color: green"><%= notice %></p>
-
 <h1>List of Needs</h1>
-
+<% if Need.any? %>
 <table id="tblNeeds" class="table table-bordered">
   <thead class="table-dark">
     <tr>
@@ -16,7 +14,7 @@
   <tbody>
     <% @needs.each do |need| %>
     <tr>
-      <td><%=Type.all.where(id: need.type_id).name %></td><!-- TODO: fix this-->
+      <td><%= Type.find(need.type_id).name %></td>
       <td><%= need.name %></td>
       <td><%= need.begin_date.strftime("%F %H:%M") %></td>
       <td><%= need.end_date.strftime("%F %H:%M") %></td>
@@ -26,4 +24,7 @@
     <% end %>
   </tbody>
 </table>
+<% else %>
+<div class="alert alert-warning">Please create a Need.</div>
+<% end %>
 <%= link_to "New need", new_need_path %>

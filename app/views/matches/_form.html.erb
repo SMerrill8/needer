@@ -12,12 +12,12 @@
 
   <div>
     <%= form.label :need_id, style: "display: block" %>
-      <%= form.select :need_id, options_from_collection_for_select(Need.all, :id, :name) %>
+      <%= form.select :need_id, options_from_collection_for_select(Need.all, :id, :name, @match.need_id) %>
   </div>
 
   <div>
     <%= form.label :resource_id, style: "display: block" %>
-      <%= form.select :resource_id, options_from_collection_for_select(Resource.all, :id, :name) %>
+      <%= form.select :resource_id, options_from_collection_for_select(Resource.all, :id, :name, @match.resource_id) %>
   </div>
 
   <div>

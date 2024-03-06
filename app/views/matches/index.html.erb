@@ -1,14 +1,27 @@
-<p style="color: green"><%= notice %></p>
+<h1>List of Matches</h1>
+<% if Match.any? %>
+<table id="tblMatches" class="table table-bordered">
+  <thead class="table-dark">
+    <tr>
+      <td>Type</td>
+      <td>Resource</td>
+      <td>Need</td> 
+      <td>Show</td>    
+    </tr>
+  </thead>
+  <tbody>
 
-<h1>Matches</h1>
-
-<div id="matches">
-  <% @matches.each do |match| %>
-    <%= render match %>
-    <p>
-      <%= link_to "Show this match", match %>
-    </p>
-  <% end %>
-</div>
-
+    <% @matches.each do |match| %>
+      <tr>
+        <td><%= Type.find(match.type_id).name %></td>
+        <td><%= Resource.find(match.resource_id).name %></td>
+        <td><%= Need.find(match.need_id).name %></td>
+        <td><%= link_to "Show", match %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% else %>
+<div class="alert alert-warning">Please create a match.</div>
+<% end %>
 <%= link_to "New match", new_match_path %>

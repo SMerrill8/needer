@@ -1,12 +1,24 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Resources</h1>
-
-<div id="resources">
-  <% @resources.each do |resource| %>
-   <p> <%= render resource %>
-    <%= link_to "Show", resource %></p>
-  <% end %>
-</div>
-
+<h1>List of Resources</h1>
+<% if Resource.any? %>
+<table id="tblResources" class="table table-bordered">
+  <thead class="table-dark">
+    <tr>
+      <td>Type</td>
+      <td>Name</td>
+      <td>Show</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @resources.each do |resource| %>
+    <tr>
+      <td><%= Type.find(resource.type_id).name %></td>
+      <td><%= resource.name %></td>
+      <td><%= link_to "Show", resource %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<% else %>
+<div class="alert alert-warning">Please create a Resource.</div>
+<% end %>
 <%= link_to "New resource", new_resource_path %>
