@@ -16,6 +16,7 @@ class NeedsController < ApplicationController
     @need = Need.new
     @need.begin_date = Time.now
     @need.end_date = @need.begin_date + 7.days
+    @need.organization_id = current_user.organization_id
   end
 
   # GET /needs/1/edit
@@ -68,6 +69,6 @@ class NeedsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def need_params
-      params.require(:need).permit(:name, :long_description, :type_id, :begin_date, :end_date)
+      params.require(:need).permit(:name, :long_description, :type_id, :begin_date, :end_date, :organization_id)
     end
 end

@@ -8,11 +8,11 @@ class PasswordsController < ApplicationController
         if current_user.update(password_params)
             redirect_to edit_password_path, notice: "Your password has been updated successfully."
         else
-            render :edit, status: unprocessable_entity
+            render :edit, status: :unprocessable_entity
         end
     end
     private
-    def password_params 
+    def password_params
         params.require(:user).permit(
             :password,
             :password_confirmation,
@@ -20,4 +20,3 @@ class PasswordsController < ApplicationController
         ).with_defaults(password_challenge: "")
     end
 end
-

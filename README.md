@@ -13,3 +13,27 @@ https://youtu.be/Hb9WtQf9K60?si=LhIpB7NWoFjoyoTN
 
 The author is using the stylesheets from 
 https://getbootstrap.com/docs/5.3/getting-started/introduction/ 
+
+## Use Cases
+### Register new Organization
+1. Browse to /organizations/new 
+
+### Sign In new user
+### Sign Up new user
+#### Sign up via Username/Password
+##### Edit Password
+TODO: Editing the password doesn't work.
+##### Log Out
+TODO: Implement OmniAuth
+#### Sign up via Twitter
+#### Sign up via Facebook
+#### Sign up via GitHub
+
+### Create new Need
+TODO: Associate a Need with the Organization of the current user
+### Create new Resource
+TODO: Associate a Resource with the Organization of the current user
+### Create new Match between Need and Resource
+TODO: Associate a Match with the Organization of the current user
+
+

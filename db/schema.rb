@@ -15,6 +15,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_20_160404) do
     t.integer "resource_id"
     t.integer "need_id"
     t.integer "type_id"
+    t.integer "organization_id"
     t.index ["need_id"], name: "index_matches_on_need_id"
     t.index ["resource_id"], name: "index_matches_on_resource_id"
     t.index ["type_id"], name: "index_matches_on_type_id"
@@ -23,11 +24,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_20_160404) do
   create_table "needs", force: :cascade do |t|
     t.string "name"
     t.integer "type_id"
+    t.integer "organization_id"
     t.datetime "begin_date", null: false
     t.datetime "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "long_description"
+    t.index ["organization_id"], name: "index_needs_on_organization_id"
     t.index ["type_id"], name: "index_needs_on_type_id"
   end
 
@@ -40,6 +43,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_20_160404) do
   create_table "resources", force: :cascade do |t|
     t.string "name"
     t.integer "type_id"
+    t.integer "organization_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["type_id"], name: "index_resources_on_type_id"

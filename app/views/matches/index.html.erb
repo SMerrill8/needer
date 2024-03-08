@@ -1,27 +1,38 @@
 <h1>List of Matches</h1>
 <% if Match.any? %>
-<table id="tblMatches" class="table table-bordered">
-  <thead class="table-dark">
-    <tr>
-      <td>Type</td>
-      <td>Resource</td>
-      <td>Need</td> 
-      <td>Show</td>    
-    </tr>
-  </thead>
-  <tbody>
-
-    <% @matches.each do |match| %>
+  <table id="tblMatches" class="table table-bordered">
+    <thead class="table-dark">
       <tr>
-        <td><%= Type.find(match.type_id).name %></td>
-        <td><%= Resource.find(match.resource_id).name %></td>
-        <td><%= Need.find(match.need_id).name %></td>
-        <td><%= link_to "Show", match %></td>
+        <td>Type</td>
+        <td>Resource</td>
+        <td>Need</td> 
+        <td>Show</td>    
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+
+      <% @matches.each do |match| %>
+        <tr>
+          <td><%= Type.find(match.type_id).name %></td>
+          <td><%= Resource.find(match.resource_id).name %></td>
+          <td><%= Need.find(match.need_id).name %></td>
+          <td><%= link_to "Show", match %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 <% else %>
-<div class="alert alert-warning">Please create a match.</div>
+  <% if Need.any? %>
+    <% if Resource.any? %>
+      <div class="alert alert-warning">Please create a match.</div>
+      <%= link_to "New match", new_match_path %>
+    <% else %>
+       <div class="alert alert-warning">There are no Resources to be matched. Please create a Resource.</div>
+       <%= link_to "New resource", new_resource_path %>
+    <% end %>
+  <% else %>
+    <div class="alert alert-warning">There are no Needs to be matched. Please create a Need.</div>
+    <%= link_to "New need", new_need_path %>
+  <% end %>
 <% end %>
-<%= link_to "New match", new_match_path %>
+

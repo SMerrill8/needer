@@ -16,7 +16,7 @@
     end
 
     def edit
-        
+
     end
 
     def update
@@ -24,7 +24,7 @@
             redirect_to new_session_path, notice: "Your password has been reset successfully.  Please log in."
         else
             flash[:alert] = "Unable to update password."
-            render :edit, status: :unprocessible_entity
+            render :edit, status: :unprocessable_entity
         end
     end
 

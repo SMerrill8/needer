@@ -57,8 +57,8 @@ rt = Supertype.find_by(name: "Resource").id
 "Volunteer",
 "Visitation"
 ].each do |n|
-  Type.find_or_create_by(name: n) do |user|
-    user.supertype_id = rt
+  Type.find_or_create_by(name: n) do |type|
+    type.supertype_id = rt
   end
 end
 

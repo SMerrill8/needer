@@ -24,7 +24,7 @@ include MatchesHelper
   # POST /matches or /matches.json
   def create
     @match = Match.new(match_params)
-
+    @match.organization_id = current_user.organization_id
     respond_to do |format|
       if @match.save
         format.html { redirect_to match_url(@match), notice: "Match was successfully created." }
@@ -67,6 +67,6 @@ include MatchesHelper
 
     # Only allow a list of trusted parameters through.
     def match_params
-      params.require(:match).permit(:resource_id, :need_id, :type_id)
+      params.require(:match).permit(:resource_id, :need_id, :type_id, :organization_id)
     end
 end

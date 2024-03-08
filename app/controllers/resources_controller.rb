@@ -3,7 +3,7 @@ class ResourcesController < ApplicationController
 
   # GET /resources or /resources.json
   def index
-    @resources = Resource.all
+    @resources = Resource.all.sort_by{|e| e[:name]}
   end
 
   # GET /resources/1 or /resources/1.json
@@ -13,6 +13,7 @@ class ResourcesController < ApplicationController
   # GET /resources/new
   def new
     @resource = Resource.new
+    @resource.organization_id = current_user.organization_id
   end
 
   # GET /resources/1/edit
@@ -22,7 +23,7 @@ class ResourcesController < ApplicationController
   # POST /resources or /resources.json
   def create
     @resource = Resource.new(resource_params)
-
+    @resource.organization_id = current_user.organization_id
     respond_to do |format|
       if @resource.save
         format.html { redirect_to resource_url(@resource), notice: "Resource was successfully created." }
@@ -65,6 +66,6 @@ class ResourcesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def resource_params
-      params.require(:resource).permit(:name, :type_id)
+      params.require(:resource).permit(:name, :type_id, :organization_id)
     end
 end
