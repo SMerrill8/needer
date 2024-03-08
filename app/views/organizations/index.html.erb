@@ -1,12 +1,21 @@
-<h1>Organizations</h1>
-
+<h1>List of Organizations</h1>
 <div id="organizations">
-  <% @organizations.each do |organization| %>
-    <%= render organization %>
-    <p>
-      <%= link_to "Show this organization", organization %>
-    </p>
+<% if Organization.any? %>
+  <table id="tblOrganizations" class="table table-bordered table-striped">
+    <tbody>
+       <% @organizations.each do |org| %>
+        <tr>
+           <td>
+            <%= link_to org.name, edit_organization_path(org) %>
+           </td>
+        </tr>
+       <% end %>
+    </tbody>
+  </table>
+  <% else %>
+    <div class="alert alert-warning">There are no Organizations.</div>
   <% end %>
 </div>
+
 
 <%= link_to "New organization", new_organization_path %>

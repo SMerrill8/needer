@@ -5,15 +5,13 @@
     <tr>
       <td>Type</td>
       <td>Name</td>
-      <td>Show</td>
     </tr>
   </thead>
   <tbody>
     <% @resources.each do |resource| %>
     <tr>
       <td><%= Type.find(resource.type_id).name %></td>
-      <td><%= resource.name %></td>
-      <td><%= link_to "Show", resource %></td>
+      <td><%= link_to resource.name, edit_resource_path(resource) %></td>
     </tr>
     <% end %>
   </tbody>

@@ -5,6 +5,8 @@ There would typically be a list of needs that need to be met,
 and a list of people who had the skills or resources to meet those needs.
 
 People will use this portal to sign up to match their skills/resources with the needs they wish to meet.
+## Dependencies
+Bootstrap was used for Stylesheets (https://getbootstrap.com/docs)
 
 ## Implementation
 This website has been implemented in rails 7.1.3 and ruby 3.2.3.
