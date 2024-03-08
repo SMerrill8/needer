@@ -26,7 +26,7 @@ class NeedsController < ApplicationController
   # POST /needs or /needs.json
   def create
     @need = Need.new(need_params)
-
+    @need.organization_id = current_user.organization_id
     respond_to do |format|
       if @need.save
         format.html { redirect_to need_url(@need), notice: "Need was successfully created." }
@@ -69,6 +69,6 @@ class NeedsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def need_params
-      params.require(:need).permit(:name, :long_description, :type_id, :begin_date, :end_date, :organization_id)
+      params.require(:need).permit(:name, :long_description, :type_id, :begin_date, :end_date)
     end
 end

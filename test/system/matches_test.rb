@@ -38,7 +38,7 @@ class MatchesTest < ApplicationSystemTestCase
 
   test "should destroy Match" do
     visit match_url(@match)
-    click_on "Destroy this match", match: :first
+    click_on "Delete this match", match: :first
 
     assert_text "Match was successfully destroyed"
   end

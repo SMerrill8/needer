@@ -1,10 +1,8 @@
-<p style="color: green"><%= notice %></p>
-
 <%= render @supertype %>
 
 <div>
   <%= link_to "Edit this supertype", edit_supertype_path(@supertype) %> |
   <%= link_to "Back to supertypes", supertypes_path %>
 
-  <%= button_to "Destroy this supertype", @supertype, method: :delete %>
+  <%= button_to "Delete this supertype", @supertype, method: :delete %>
 </div>

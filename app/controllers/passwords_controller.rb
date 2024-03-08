@@ -1,4 +1,5 @@
 class PasswordsController < ApplicationController
+
     before_action :authenticate_user!
     def edit
 
@@ -11,7 +12,9 @@ class PasswordsController < ApplicationController
             render :edit, status: :unprocessable_entity
         end
     end
+
     private
+
     def password_params
         params.require(:user).permit(
             :password,

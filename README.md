@@ -30,11 +30,7 @@ TODO: Implement OmniAuth
 #### Sign up via GitHub
 
 ### Create new Need
-TODO: Cannot create a need "organization must exist."
-TODO: Associate a Need with the Organization of the current user
+
 ### Create new Resource
-TODO: Associate a Resource with the Organization of the current user
+
 ### Create new Match between Need and Resource
-TODO: Associate a Match with the Organization of the current user
-
-

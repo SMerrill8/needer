@@ -36,7 +36,7 @@ class ResourcesTest < ApplicationSystemTestCase
 
   test "should destroy Resource" do
     visit resource_url(@resource)
-    click_on "Destroy this resource", match: :first
+    click_on "Delete this resource", match: :first
 
     assert_text "Resource was successfully destroyed"
   end

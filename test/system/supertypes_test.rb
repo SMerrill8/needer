@@ -34,7 +34,7 @@ class SupertypesTest < ApplicationSystemTestCase
 
   test "should destroy Supertype" do
     visit supertype_url(@supertype)
-    click_on "Destroy this supertype", match: :first
+    click_on "Delete this supertype", match: :first
 
     assert_text "Supertype was successfully destroyed"
   end

@@ -40,7 +40,7 @@ class NeedsTest < ApplicationSystemTestCase
 
   test "should destroy Need" do
     visit need_url(@need)
-    click_on "Destroy this need", match: :first
+    click_on "Delete this need", match: :first
 
     assert_text "Need was successfully destroyed"
   end

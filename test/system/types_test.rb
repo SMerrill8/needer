@@ -36,7 +36,7 @@ class TypesTest < ApplicationSystemTestCase
 
   test "should destroy Type" do
     visit type_url(@type)
-    click_on "Destroy this type", match: :first
+    click_on "Delete this type", match: :first
 
     assert_text "Type was successfully destroyed"
   end
