@@ -21,6 +21,14 @@ rt = Supertype.find_by(name: "Team").id
   end
 end
 
+# Need Types
+rt = Supertype.find_by(name: "Need").id
+["Personal", "Corporate"].each do |n|
+  Type.find_or_create_by(name: n) do |x|
+    x.supertype_id = rt
+  end
+end
+
 # Resource Types
 rt = Supertype.find_by(name: "Resource").id
 ["_OTHER",
